@@ -122,25 +122,90 @@ Rigorous backtesting and evaluation ensure that the system performs well under r
 
 ---
 
-## **Getting Started**
-1. **Install Dependencies:**
-   ```bash
-   sudo apt update && sudo apt install -y cmake g++ libtorch-dev
-   ```
-2. **Clone Repository:**
-   ```bash
-   git clone https://github.com/your-username/stock-predictor.git
-   cd stock-predictor
-   ```
-3. **Build the Project:**
-   ```bash
-   mkdir build && cd build
-   cmake .. && make
-   ```
-4. **Run the Program:**
-   ```bash
-   ./stock-predictor
-   ```
+## **How it Works**
+```
+./stock-predictor AAPL current
+```
+Here’s how FORESIGHT processes this request step by step:
+
+1. Parse Command-Line Arguments
+The program reads the arguments (AAPL as the ticker symbol, current as the mode).
+It determines that you want a real-time prediction rather than backtesting.
+2. Fetch Latest Stock Market Data
+The data_loader module (data_loader.cpp) queries a market data API (e.g., Alpha Vantage, Yahoo Finance, or a firm’s proprietary feed) for AAPL’s latest price, volume, and technical indicators.
+If using an internal database, it fetches the most recent records. <br> **Example Output (Raw Data Sample)**:
+```
+{
+  "timestamp": "2025-02-19T14:30:00Z",
+  "open": 185.12,
+  "high": 186.50,
+  "low": 184.90,
+  "close": 186.10,
+  "volume": 12_345_678
+}
+```
+3. Apply Fourier and Wavelet Transformations
+The transform module (transform.cpp) preprocesses the stock data using Fourier and wavelet transforms to:
+Remove high-frequency noise.
+Identify periodic market trends and anomalies. <br> **Example Fourier Transform Output**:
+```
+{
+  "dominant_frequencies": [0.0005, 0.0021],
+  "trend_strength": 0.87
+}
+```
+4. Perform Sentiment Analysis on Market News & Social Media
+The sentiment module (sentiment.cpp) fetches financial news and Twitter/Reddit sentiment.
+A Transformer model (e.g., FinBERT) processes the text and assigns sentiment scores.
+ONNX Runtime accelerates inference for near-instant results.
+<br> **Example Sentiment Output**:
+```
+{
+  "news_sentiment": 0.72,  // Positive sentiment
+  "social_media_sentiment": -0.15,  // Slightly negative sentiment
+  "aggregated_score": 0.65  // Weighted combination
+}
+```
+5. Pass Data to the Deep Learning Model (LSTM / TCN)
+The DNN module (dnn_model.cpp) loads a pre-trained LSTM or TCN model (stored in /models/ directory).
+The model predicts the next price movement based on historical and transformed data.
+CUDA acceleration is used for fast inference.
+<br> **Example Prediction Output**:
+
+```
+{
+  "predicted_price": 187.25,
+  "confidence": 0.92
+}
+```
+6. Reinforcement Learning Model Suggests an Action
+The RL module (rl_model.cpp) takes the predicted price, sentiment data, and Fourier features to decide whether to:
+BUY, SELL, or HOLD AAPL shares.
+Deep Q-Learning (DQN) or Actor-Critic (A2C) evaluates past rewards and risk exposure.
+<br> **Example RL Output**:
+```
+{
+  "recommended_action": "BUY",
+  "expected_reward": 1.45,
+  "risk_factor": 0.30
+}
+```
+7. Generate Final Output for the User
+The CLI displays the result in a human-readable format:
+<br> **Terminal Output**:
+
+```
+[FORESIGHT] Stock Prediction for AAPL (Real-Time)
+---------------------------------------------------
+Current Price:      $186.10
+Predicted Price:    $187.25 (Confidence: 92%)
+Sentiment Score:    0.65 (Moderately Positive)
+RL Action:          BUY
+Risk Factor:        30%
+---------------------------------------------------
+Recommendation: BUY - Expected Reward: 1.45x
+```
+If logging is enabled, the system appends this result to a CSV or database for tracking.
 
 ---
 
