@@ -3,7 +3,7 @@
 
 # FORESIGHT: AI-Powered Stock Price Prediction System
 
-**FORESIGHT** (**F**ourier **O**ptimized **R**einforcement **E**fficient **S**tock **I**nference using **G**PU-accelerated **H**igh-frequency **T**rading) is a high-performance stock price prediction system that integrates **deep learning**, **reinforcement learning**, **Fourier transforms**, and **sentiment analysis**. The system leverages **CUDA optimization** for real-time inference and market predictions, enabling dynamic trading strategies.
+**FORESIGHT** (**F**ourier-Informed **O**ptimization for **R**einforcement-Learned **E**ntries and **S**entiment-Integrated **I**nvestment using **G**PU-Accelerated **H**istorical & **T**echnical Analysis) is a high-performance stock price prediction system that integrates **deep learning**, **reinforcement learning**, **Fourier transforms**, and **sentiment analysis**. The system leverages **CUDA optimization** for real-time inference and market predictions, enabling dynamic trading strategies.
 
 ---
 
