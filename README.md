@@ -11,7 +11,8 @@ This system is optimized for **hedge funds, algorithmic traders, and quantitativ
 - **Portfolio Optimization** – Markowitz, Black-Litterman, Kelly Criterion (Rust & CUDA)  
 - **Ultra-Low-Latency Execution** – Rust-based order matching and Direct Market Access (DMA)  
 - **High-Performance Computing** – CUDA-accelerated simulations for risk and optimization  
-- **Real-Time Risk Management** – Monte Carlo simulations, Value-at-Risk calculations  
+- **Real-Time Risk Management** – Monte Carlo simulations, Value-at-Risk calculations
+- **Sentiment & Alternative Data Analysis** – NLP for sentiment analysis, knowledge graphs, and alternative data integration.
 
 ---
 
@@ -21,6 +22,7 @@ This system is optimized for **hedge funds, algorithmic traders, and quantitativ
 | **Machine Learning (ML) & Data Analysis** | Python  | Data preprocessing, feature engineering, model orchestration |
 | **High-Performance Trade Execution & Order Matching** | Rust  | Low-latency trade execution, safe and efficient parallel processing |
 | **GPU Acceleration for AI & Quantitative Finance** | CUDA C++  | Deep learning inference, reinforcement learning, Monte Carlo simulations |
+| **Sentiment & Alternative Data Analysis** | Python	| NLP for sentiment analysis, knowledge graphs, alternative data processing |
 
 ---
 
@@ -50,9 +52,18 @@ FORESIGHT/
 
 # **Implementation Breakdown by Language**
 
-## **Python – Machine Learning, Data Processing, and Orchestration**  
+## **Python – Machine Learning, Data Processing, Sentiment Analysis, and Orchestration**  
 ```
 FORESIGHT/src/python/
+├── sentiment_analysis/       # NLP and sentiment analysis
+│   ├── data_collection.py   # Scrape and collect data
+│   ├── preprocessing.py     # Clean and preprocess text
+│   ├── finbert_model.py     # Sentiment analysis with FinBERT
+│   ├── visualization.py     # Visualize sentiment trends
+├── alternative_data/        # Alternative data processing
+│   ├── satellite_data.py    # Process satellite imagery
+│   ├── transactions.py      # Analyze credit card transactions
+│   ├── knowledge_graph.py   # Build knowledge graphs
 │── data_pipeline.py         # Tick-level data ingestion & preprocessing
 │── feature_engineering.py   # Feature creation for ML models
 │── model_training.py        # Train LSTM, Transformer, and RL models
@@ -60,7 +71,7 @@ FORESIGHT/src/python/
 │── visualization.py         # Generate reports & charts
 │── orchestration.py         # Manage execution flow (Python calling Rust/CUDA)
 ```
- **Primary Role:** Handles **data analysis, feature engineering, machine learning training, and high-level orchestration**.  
+ **Primary Role:** Handles **data analysis, feature engineering, machine learning training, sentiment analysis, and high-level orchestration**.  
  **Interoperability:** Python calls Rust functions for efficient execution and CUDA for AI acceleration.  
 
 #### **Example – Calling Rust & CUDA for High-Performance Computation**
@@ -146,7 +157,7 @@ FORESIGHT/src/execution_engine/
 │── order_matching.rs        # Limit order book (Rust)
 │── dma_connector.rs         # Direct Market Access API (Rust)
 ```
-✔ **Why This Matters:** GPU-accelerated optimization ensures **faster trading decisions with superior risk-adjusted returns**.  
+ **Why This Matters:** GPU-accelerated optimization ensures **faster trading decisions with superior risk-adjusted returns**.  
 
 ---
 
@@ -157,7 +168,7 @@ FORESIGHT/src/risk_management/
 │── var.rs                   # Value-at-Risk (Rust)
 │── greeks.py                # Option Greeks calculation (Python)
 ```
-✔ **High-Speed Risk Simulations with Monte Carlo and Value-at-Risk**  
+ **High-Speed Risk Simulations with Monte Carlo and Value-at-Risk**  
 
 ---
 
@@ -168,7 +179,7 @@ FORESIGHT/benchmarks/
 │── cuda_benchmarks.cu       # CUDA performance testing
 │── python_tests.py          # Python integration tests
 ```
-✔ **Ensures performance is optimal for real-time trading environments.**  
+ **Ensures performance is optimal for real-time trading environments.**  
 
 ---
 
