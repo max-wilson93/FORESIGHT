@@ -7,11 +7,11 @@ FORESIGHT is a **high-performance, AI-driven financial forecasting system** desi
 This system is optimized for **hedge funds, algorithmic traders, and quantitative researchers** who need advanced tools for **predictive modeling, trade execution, and risk management**.  
 
 ## **Key Features**  
-✔ **Machine Learning & AI** – LSTMs, Transformers, and Reinforcement Learning (CUDA-accelerated)  
-✔ **Portfolio Optimization** – Markowitz, Black-Litterman, Kelly Criterion (Rust & CUDA)  
-✔ **Ultra-Low-Latency Execution** – Rust-based order matching and Direct Market Access (DMA)  
-✔ **High-Performance Computing** – CUDA-accelerated simulations for risk and optimization  
-✔ **Real-Time Risk Management** – Monte Carlo simulations, Value-at-Risk calculations  
+- **Machine Learning & AI** – LSTMs, Transformers, and Reinforcement Learning (CUDA-accelerated)  
+- **Portfolio Optimization** – Markowitz, Black-Litterman, Kelly Criterion (Rust & CUDA)  
+- **Ultra-Low-Latency Execution** – Rust-based order matching and Direct Market Access (DMA)  
+- **High-Performance Computing** – CUDA-accelerated simulations for risk and optimization  
+- **Real-Time Risk Management** – Monte Carlo simulations, Value-at-Risk calculations  
 
 ---
 
